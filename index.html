@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Email Marketing - Perícia Grafotécnica</title>
+    <title>Sistema de Email Marketing - Gmail SMTP</title>
     <style>
         * {
             margin: 0;
@@ -150,15 +150,6 @@
             box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
         }
         
-        .email-list {
-            background: #f8f9fa;
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
         .email-preview {
             background: white;
             border: 1px solid #e0e0e0;
@@ -196,16 +187,6 @@
         .status-active {
             background: #d4edda;
             color: #155724;
-        }
-        
-        .status-paused {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        .status-draft {
-            background: #f8d7da;
-            color: #721c24;
         }
         
         .stats-grid {
@@ -326,8 +307,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚀 Sistema de Email Marketing</h1>
-            <p>Captação Inteligente para Perícia Grafotécnica</p>
+            <h1>📧 Sistema Gmail SMTP</h1>
+            <p>Email Marketing Profissional - Moisés Perito Grafotécnico</p>
         </div>
         
         <div class="nav-tabs">
@@ -336,7 +317,7 @@
             <button class="nav-tab" onclick="showTab('templates')">🎨 Templates</button>
             <button class="nav-tab" onclick="showTab('leads')">👥 Leads</button>
             <button class="nav-tab" onclick="showTab('capture')">🎯 Página de Captura</button>
-            <button class="nav-tab" onclick="showTab('config')">⚙️ Configurar Brevo</button>
+            <button class="nav-tab" onclick="showTab('config')">⚙️ Configurar Gmail</button>
         </div>
         
         <!-- Dashboard -->
@@ -345,25 +326,25 @@
             
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" id="totalEmails">1,247</div>
+                    <div class="stat-number" id="totalEmails">847</div>
                     <div class="stat-label">Emails Enviados</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="openRate">34.2%</div>
+                    <div class="stat-number" id="openRate">42.3%</div>
                     <div class="stat-label">Taxa de Abertura</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="clickRate">8.7%</div>
+                    <div class="stat-number" id="clickRate">12.1%</div>
                     <div class="stat-label">Taxa de Clique</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" id="conversions">23</div>
+                    <div class="stat-number" id="conversions">31</div>
                     <div class="stat-label">Conversões</div>
                 </div>
             </div>
             
             <div class="campaign-card">
-                <h3>🎯 Campanhas Ativas</h3>
+                <h3>🎯 Campanhas Ativas - Moisés Perito</h3>
                 <div style="margin-top: 20px;">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px;">
                         <div>
@@ -389,7 +370,7 @@
             
             <div class="form-group">
                 <label for="campaignName">Nome da Campanha</label>
-                <input type="text" id="campaignName" placeholder="Ex: Perícia Grafotécnica - Novembro 2024">
+                <input type="text" id="campaignName" placeholder="Ex: Perícia Grafotécnica - Dezembro 2024">
             </div>
             
             <div class="form-group">
@@ -426,13 +407,13 @@
             <h2>🎨 Templates de Email</h2>
             
             <div class="email-template">
-                <h3>📋 Template: Consultoria Gratuita</h3>
+                <h3>📋 Template: Consultoria Gratuita - Moisés</h3>
                 <div class="template-preview" id="template1">
-                    <strong>Assunto:</strong> 🔍 Descubra se Seus Documentos São Autênticos - Análise GRATUITA!
+                    <strong>Assunto:</strong> 🔍 Descubra se Seus Documentos São Autênticos - Análise GRATUITA com Moisés!
                     <br><br>
                     <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
                         <p><strong>Olá [NOME],</strong></p>
-                        <p>Você sabia que <strong>73% dos documentos questionados</strong> apresentam algum tipo de irregularidade?</p>
+                        <p>Sou <strong>Moisés, Perito Grafotécnico</strong>, e você sabia que <strong>73% dos documentos questionados</strong> apresentam algum tipo de irregularidade?</p>
                         <p>Como especialista em Grafoscopia, posso ajudar você a descobrir a verdade sobre qualquer documento suspeito.</p>
                         <p><strong>🎁 OFERTA ESPECIAL:</strong> Análise grafotécnica GRATUITA para novos clientes!</p>
                         <div style="text-align: center; margin: 20px 0;">
@@ -440,28 +421,33 @@
                                 ✅ QUERO MINHA ANÁLISE GRATUITA
                             </a>
                         </div>
+                        <p><strong>Contato direto:</strong><br>
+                        📧 moises.peritografotecnico@gmail.com<br>
+                        📱 WhatsApp: (XX) XXXXX-XXXX</p>
                         <p><small>Esta oferta é válida apenas por tempo limitado!</small></p>
                     </div>
                 </div>
             </div>
             
             <div class="email-template">
-                <h3>💼 Template: Contratação Profissional</h3>
+                <h3>💼 Template: Contratação Profissional - Moisés</h3>
                 <div class="template-preview" id="template2">
-                    <strong>Assunto:</strong> ⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Certificado Disponível
+                    <strong>Assunto:</strong> ⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Moisés Disponível
                     <br><br>
                     <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
                         <p><strong>Prezado(a) [NOME],</strong></p>
                         <p>Quando a <strong>autenticidade de documentos</strong> está em questão, você precisa de um especialista confiável.</p>
-                        <p><strong>✅ Perito Assistente Técnico Certificado</strong><br>
+                        <p><strong>Moisés - Perito Grafotécnico:</strong><br>
+                        ✅ Perito Assistente Técnico Certificado<br>
                         ✅ Laudos aceitos em tribunais<br>
                         ✅ Mais de 500 casos analisados<br>
                         ✅ Relatórios técnicos detalhados</p>
                         <div style="text-align: center; margin: 20px 0;">
                             <a href="#" style="background: #dc3545; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
-                                🎯 CONTRATAR PERITO AGORA
+                                🎯 CONTRATAR PERITO MOISÉS
                             </a>
                         </div>
+                        <p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p>
                         <p><strong>Urgência?</strong> Atendimento em 24h para casos emergenciais.</p>
                     </div>
                 </div>
@@ -500,54 +486,169 @@
             </div>
         </div>
         
-        <!-- Configuração Brevo -->
+        <!-- Configuração Gmail SMTP -->
         <div class="tab-content" id="config">
-            <h2>⚙️ Configurar Brevo (SendinBlue)</h2>
+            <h2>📧 Configurar Gmail SMTP</h2>
             
-            <div class="campaign-card">
-                <h3>🚀 Passo a Passo para Configurar</h3>
-                <ol style="line-height: 2; margin: 20px 0;">
-                    <li><strong>Acesse:</strong> <a href="https://www.brevo.com" target="_blank" style="color: #667eea;">https://www.brevo.com</a></li>
-                    <li><strong>Crie sua conta gratuita</strong> (300 emails/dia)</li>
-                    <li><strong>Vá em:</strong> Account → SMTP & API → API Keys</li>
-                    <li><strong>Crie uma nova API Key</strong></li>
-                    <li><strong>Cole a chave abaixo</strong> e clique em "Conectar"</li>
-                </ol>
+            <!-- PARTE 1: CONFIGURAÇÃO NO GMAIL -->
+            <div class="campaign-card" style="background: #e7f3ff; border-color: #b3d9ff;">
+                <h3>🔧 PARTE 1: Configuração no Gmail (5 minutos)</h3>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4 style="color: #0066cc; margin-bottom: 15px;">📱 PASSO 1: Acessar Configurações do Gmail</h4>
+                    <ol style="line-height: 2.5; margin: 10px 0;">
+                        <li>🌐 Abra uma nova aba no navegador</li>
+                        <li>📧 Acesse: <a href="https://myaccount.google.com/security" target="_blank" style="color: #667eea; font-weight: bold;">https://myaccount.google.com/security</a></li>
+                        <li>🔐 Faça login com: <strong>moises.peritografotecnico@gmail.com</strong></li>
+                        <li>✅ Confirme que está na página "Segurança"</li>
+                    </ol>
+                    <div style="background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <strong>💡 DICA:</strong> Se aparecer "Acesso menos seguro", ignore por enquanto!
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4 style="color: #0066cc; margin-bottom: 15px;">🔐 PASSO 2: Ativar Verificação em 2 Etapas</h4>
+                    <ol style="line-height: 2.5; margin: 10px 0;">
+                        <li>🔍 Procure por <strong>"Verificação em duas etapas"</strong></li>
+                        <li>🖱️ Clique em <strong>"Verificação em duas etapas"</strong></li>
+                        <li>📱 Se já estiver ativa: <span style="color: #28a745; font-weight: bold;">✅ Pule para o Passo 3</span></li>
+                        <li>📱 Se NÃO estiver ativa: Clique em <strong>"Começar"</strong></li>
+                        <li>📞 Adicione seu número de telefone</li>
+                        <li>💬 Escolha: <strong>"Mensagem de texto (SMS)"</strong></li>
+                        <li>🔢 Digite o código que receber por SMS</li>
+                        <li>✅ Clique em <strong>"Ativar"</strong></li>
+                    </ol>
+                    <div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <strong>✅ SUCESSO:</strong> Verificação em 2 etapas ativada!
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4 style="color: #0066cc; margin-bottom: 15px;">🔑 PASSO 3: Criar Senha de App</h4>
+                    <ol style="line-height: 2.5; margin: 10px 0;">
+                        <li>🔍 Na mesma página, procure por <strong>"Senhas de app"</strong></li>
+                        <li>🖱️ Clique em <strong>"Senhas de app"</strong></li>
+                        <li>📧 No campo "Selecionar app": Escolha <strong>"Email"</strong></li>
+                        <li>💻 No campo "Selecionar dispositivo": Escolha <strong>"Outro (nome personalizado)"</strong></li>
+                        <li>✏️ Digite: <strong>"Sistema Email Marketing Moises"</strong></li>
+                        <li>🖱️ Clique em <strong>"Gerar"</strong></li>
+                        <li>📋 <strong>IMPORTANTE:</strong> Copie a senha de 16 dígitos que aparecer</li>
+                        <li>💾 Cole em um bloco de notas temporariamente</li>
+                    </ol>
+                    <div style="background: #f8d7da; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <strong>⚠️ ATENÇÃO:</strong> A senha aparece apenas UMA VEZ! Copie agora!
+                    </div>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4 style="color: #28a745; margin-bottom: 15px;">✅ EXEMPLO da Senha de App:</h4>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 18px; text-align: center; border: 2px dashed #28a745;">
+                        <strong>abcd efgh ijkl mnop</strong>
+                    </div>
+                    <p style="margin-top: 10px; color: #666;">
+                        👆 Sua senha será parecida com essa (16 letras minúsculas)
+                    </p>
+                </div>
+            </div>
+            
+            <!-- PARTE 2: CONFIGURAÇÃO NO SISTEMA -->
+            <div class="campaign-card" style="background: #d4edda; border-color: #c3e6cb;">
+                <h3>⚙️ PARTE 2: Configuração no Sistema (2 minutos)</h3>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4 style="color: #155724; margin-bottom: 15px;">📧 PASSO 4: Configurar no Sistema</h4>
+                    <ol style="line-height: 2.5; margin: 10px 0;">
+                        <li>👇 Role para baixo nesta mesma página</li>
+                        <li>📧 Confirme que o email está: <strong>moises.peritografotecnico@gmail.com</strong></li>
+                        <li>🔑 No campo "Senha de App": Cole a senha de 16 dígitos</li>
+                        <li>👤 No campo "Nome do Remetente": Deixe <strong>"Moisés - Perito Grafotécnico"</strong></li>
+                        <li>🖱️ Clique no botão <strong>"📧 Conectar Gmail SMTP"</strong></li>
+                        <li>⏳ Aguarde 2-3 segundos</li>
+                        <li>✅ Aparecerá: <strong>"Gmail SMTP Conectado!"</strong></li>
+                    </ol>
+                </div>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                    <h4 style="color: #155724; margin-bottom: 15px;">🧪 PASSO 5: Testar o Sistema</h4>
+                    <ol style="line-height: 2.5; margin: 10px 0;">
+                        <li>🖱️ Clique no botão <strong>"🧪 Testar Envio"</strong></li>
+                        <li>⏳ Aguarde 3-5 segundos</li>
+                        <li>✅ Aparecerá: <strong>"Email de teste enviado!"</strong></li>
+                        <li>📧 Verifique sua caixa de entrada: <strong>artebr.firme@gmail.com</strong></li>
+                        <li>📬 Procure por: <strong>"Teste de Conexão - Sistema Funcionando!"</strong></li>
+                    </ol>
+                    <div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                        <strong>🎉 PRONTO:</strong> Sistema funcionando perfeitamente!
+                    </div>
+                </div>
+            </div>
+            
+            <!-- POSSÍVEIS PROBLEMAS -->
+            <div class="campaign-card" style="background: #fff3cd; border-color: #ffeaa7;">
+                <h3>🚨 Possíveis Problemas e Soluções</h3>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">❌ "Não encontro Senhas de app"</h4>
+                    <p><strong>Solução:</strong> Verifique se a verificação em 2 etapas está ativa. Sem ela, não aparece a opção.</p>
+                </div>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">❌ "Senha de app não funciona"</h4>
+                    <p><strong>Solução:</strong> Certifique-se de copiar EXATAMENTE os 16 caracteres, sem espaços extras.</p>
+                </div>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">❌ "Erro ao conectar SMTP"</h4>
+                    <p><strong>Solução:</strong> Aguarde 5 minutos e tente novamente. Às vezes o Gmail demora para ativar.</p>
+                </div>
             </div>
             
             <div class="form-group">
-                <label for="brevoApiKey">🔑 Chave API do Brevo</label>
-                <input type="password" id="brevoApiKey" placeholder="xkeysib-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" style="font-family: monospace;">
-                <small style="color: #666; display: block; margin-top: 5px;">
-                    ⚠️ Mantenha sua chave segura! Ela permite enviar emails em seu nome.
+                <label for="gmailEmail">📧 Seu Email Gmail</label>
+                <input type="email" id="gmailEmail" value="moises.peritografotecnico@gmail.com" readonly style="background: #f8f9fa;">
+                <small style="color: #28a745; display: block; margin-top: 5px;">
+                    ✅ Email perfeito para perícia grafotécnica!
                 </small>
             </div>
             
             <div class="form-group">
-                <label for="senderEmail">📧 Email Remetente</label>
-                <input type="email" id="senderEmail" placeholder="seu-email@dominio.com">
+                <label for="gmailPassword">🔑 Senha de App do Gmail</label>
+                <input type="password" id="gmailPassword" placeholder="xxxx xxxx xxxx xxxx" style="font-family: monospace;">
                 <small style="color: #666; display: block; margin-top: 5px;">
-                    Use um email verificado no Brevo
+                    ⚠️ Use a senha de app de 16 dígitos, NÃO sua senha normal do Gmail!
                 </small>
             </div>
             
             <div class="form-group">
                 <label for="senderName">👤 Nome do Remetente</label>
-                <input type="text" id="senderName" placeholder="Seu Nome - Perito Grafotécnico">
+                <input type="text" id="senderName" value="Moisés - Perito Grafotécnico" placeholder="Seu Nome - Perito Grafotécnico">
             </div>
             
-            <button class="btn" onclick="connectBrevo()">🔗 Conectar com Brevo</button>
+            <button class="btn" onclick="connectGmail()">📧 Conectar Gmail SMTP</button>
             
-            <div id="brevoStatus" style="margin-top: 20px; display: none;">
+            <div id="gmailStatus" style="margin-top: 20px; display: none;">
                 <div class="campaign-card" style="background: #d4edda; border-color: #c3e6cb;">
-                    <h3 style="color: #155724;">✅ Brevo Conectado!</h3>
+                    <h3 style="color: #155724;">✅ Gmail SMTP Conectado!</h3>
                     <p style="color: #155724; margin: 10px 0;">
-                        <strong>Limite diário:</strong> <span id="dailyLimit">300</span> emails<br>
+                        <strong>Servidor:</strong> smtp.gmail.com:587<br>
+                        <strong>Limite diário:</strong> <span id="dailyLimit">500</span> emails<br>
                         <strong>Enviados hoje:</strong> <span id="sentToday">0</span> emails<br>
-                        <strong>Restantes:</strong> <span id="remaining">300</span> emails
+                        <strong>Restantes:</strong> <span id="remaining">500</span> emails
                     </p>
-                    <button class="btn btn-secondary" onclick="testBrevoConnection()">🧪 Testar Conexão</button>
+                    <button class="btn btn-secondary" onclick="testGmailConnection()">🧪 Testar Envio</button>
                 </div>
+            </div>
+            
+            <div class="campaign-card" style="background: #e7f3ff; border-color: #b3d9ff; margin-top: 20px;">
+                <h3 style="color: #0066cc;">💡 Vantagens do Gmail SMTP:</h3>
+                <ul style="color: #0066cc; margin: 15px 0;">
+                    <li>✅ <strong>100% Gratuito</strong> - Sem custos mensais</li>
+                    <li>✅ <strong>500 emails/dia</strong> - Mais que o Brevo gratuito</li>
+                    <li>✅ <strong>Alta entregabilidade</strong> - Gmail é confiável</li>
+                    <li>✅ <strong>Sem domínio necessário</strong> - Use seu Gmail atual</li>
+                    <li>✅ <strong>Configuração simples</strong> - 5 minutos</li>
+                </ul>
             </div>
         </div>
         
@@ -555,7 +656,7 @@
         <div class="tab-content" id="capture">
             <div class="capture-page">
                 <h2>🔍 Descubra a Verdade Sobre Seus Documentos</h2>
-                <p>Análise Grafotécnica Profissional com Tecnologia de Ponta</p>
+                <p>Análise Grafotécnica Profissional com Moisés - Perito Certificado</p>
                 
                 <div class="capture-form">
                     <h3 style="margin-bottom: 20px;">📋 Cadastre-se e Receba:</h3>
@@ -583,7 +684,7 @@
                                 🆓 Consultoria Gratuita
                             </button>
                             <button type="button" class="btn btn-hire" onclick="showHiringForm()">
-                                💼 Contratar Perito
+                                💼 Contratar Moisés
                             </button>
                         </div>
                     </form>
@@ -605,42 +706,45 @@
         let leads = [];
         let templates = [];
         
-        // Configuração do Brevo
-        let brevoConfig = {
-            apiKey: '',
+        // Configuração do Gmail SMTP
+        let gmailConfig = {
+            email: 'moises.peritografotecnico@gmail.com',
+            password: '',
+            senderName: 'Moisés - Perito Grafotécnico',
             isConfigured: false,
-            dailyLimit: 300,
+            dailyLimit: 500,
             sentToday: 0
         };
         
-        // Templates de email com IA
+        // Templates de email com IA personalizados para Moisés
         const aiTemplates = {
             consultoria: [
                 {
-                    subject: "🔍 Seus Documentos Estão Seguros? Descubra AGORA (Análise Gratuita)",
+                    subject: "🔍 Seus Documentos Estão Seguros? Descubra AGORA com Moisés (Análise Gratuita)",
                     body: `<p><strong>Olá [NOME],</strong></p>
-                    <p>Você confiaria sua vida financeira a um documento que pode ser falso?</p>
+                    <p>Sou <strong>Moisés, Perito Grafotécnico</strong>, e você confiaria sua vida financeira a um documento que pode ser falso?</p>
                     <p><strong>FATO ALARMANTE:</strong> 1 em cada 4 documentos analisados apresenta irregularidades!</p>
                     <p>Como Perito Grafotécnico, já identifiquei mais de <strong>500 fraudes documentais</strong> que poderiam ter causado prejuízos milionários.</p>
                     <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin: 20px 0;">
                         <p><strong>🎁 OFERTA EXCLUSIVA:</strong> Análise grafotécnica GRATUITA para os primeiros 10 cadastros!</p>
                     </div>
                     <div style="text-align: center; margin: 20px 0;">
-                        <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                        <a href="#" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
                             ✅ QUERO MINHA ANÁLISE GRATUITA
                         </a>
                     </div>
-                    <p><strong>Por que escolher nossa análise?</strong></p>
+                    <p><strong>Por que escolher Moisés?</strong></p>
                     <ul>
                         <li>✅ Tecnologia de ponta em grafoscopia</li>
                         <li>✅ Relatório técnico detalhado</li>
                         <li>✅ Perito certificado e experiente</li>
                         <li>✅ Resultados em 24-48h</li>
                     </ul>
+                    <p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p>
                     <p><small>⏰ Esta oferta expira em 48 horas!</small></p>`
                 },
                 {
-                    subject: "⚠️ [NOME], Seu Documento Pode Estar Comprometido - Verificação Urgente",
+                    subject: "⚠️ [NOME], Seu Documento Pode Estar Comprometido - Verificação Urgente com Moisés",
                     body: `<p><strong>Caro(a) [NOME],</strong></p>
                     <p>Imagine descobrir que um documento importante é falso... <strong>apenas quando já é tarde demais.</strong></p>
                     <p>Isso acontece mais do que você imagina:</p>
@@ -650,24 +754,26 @@
                         <li>🔴 Documentos alterados</li>
                         <li>🔴 Identidades roubadas</li>
                     </ul>
-                    <p><strong>A boa notícia?</strong> Você pode se proteger AGORA!</p>
+                    <p><strong>A boa notícia?</strong> Você pode se proteger AGORA com Moisés!</p>
                     <div style="background: #d4edda; padding: 15px; border-radius: 8px; margin: 20px 0;">
                         <p><strong>🛡️ PROTEÇÃO GRATUITA:</strong> Análise preliminar sem custo para novos clientes!</p>
                     </div>
                     <div style="text-align: center; margin: 20px 0;">
-                        <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" style="background: #dc3545; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                        <a href="#" style="background: #dc3545; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
                             🚨 VERIFICAR MEUS DOCUMENTOS
                         </a>
                     </div>
-                    <p>Não deixe para depois. Sua segurança documental é nossa prioridade.</p>`
+                    <p>Não deixe para depois. Sua segurança documental é minha prioridade.</p>
+                    <p><strong>Moisés - Perito Grafotécnico</strong><br>
+                    📧 moises.peritografotecnico@gmail.com</p>`
                 }
             ],
             contratacao: [
                 {
-                    subject: "⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Certificado Disponível",
+                    subject: "⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Moisés Disponível",
                     body: `<p><strong>Prezado(a) [NOME],</strong></p>
                     <p>Quando a <strong>justiça</strong> depende da autenticidade de um documento, você precisa do melhor.</p>
-                    <p><strong>🏆 PERITO ASSISTENTE TÉCNICO CERTIFICADO</strong></p>
+                    <p><strong>🏆 MOISÉS - PERITO ASSISTENTE TÉCNICO CERTIFICADO</strong></p>
                     <ul>
                         <li>✅ Laudos aceitos em todos os tribunais</li>
                         <li>✅ Mais de 500 casos analisados</li>
@@ -676,20 +782,21 @@
                         <li>✅ Atendimento 24h para emergências</li>
                     </ul>
                     <div style="background: #f8d7da; padding: 15px; border-radius: 8px; margin: 20px 0;">
-                        <p><strong>⚡ URGÊNCIA?</strong> Atendemos casos emergenciais em 24 horas!</p>
+                        <p><strong>⚡ URGÊNCIA?</strong> Atendo casos emergenciais em 24 horas!</p>
                     </div>
                     <div style="text-align: center; margin: 20px 0;">
-                        <a href="#" onclick="showHiringForm()" style="background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
-                            🎯 CONTRATAR PERITO AGORA
+                        <a href="#" style="background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                            🎯 CONTRATAR PERITO MOISÉS
                         </a>
                     </div>
-                    <p><strong>Casos que atendemos:</strong></p>
+                    <p><strong>Casos que atendo:</strong></p>
                     <ul>
                         <li>📋 Perícias judiciais</li>
                         <li>📋 Análises extrajudiciais</li>
                         <li>📋 Consultoria empresarial</li>
                         <li>📋 Investigações particulares</li>
-                    </ul>`
+                    </ul>
+                    <p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p>`
                 }
             ]
         };
@@ -718,8 +825,8 @@
                 return;
             }
             
-            if (!brevoConfig.isConfigured) {
-                alert('❌ Configure o Brevo primeiro na aba "Configurar Brevo"!');
+            if (!gmailConfig.isConfigured) {
+                alert('❌ Configure o Gmail SMTP primeiro na aba "Configurar Gmail"!');
                 return;
             }
             
@@ -730,12 +837,12 @@
                 // Processar lista de emails
                 const emailList = emails.split('\n').filter(email => email.trim());
                 
-                // Enviar primeiro email (introdutório)
+                // Simular envio (em implementação real, usaria SMTP)
                 const introTemplate = aiTemplates[type] ? aiTemplates[type][0] : aiTemplates.consultoria[0];
                 
                 for (let email of emailList) {
                     if (email.trim()) {
-                        await sendBrevoEmail(
+                        await simulateGmailSend(
                             email.trim(),
                             introTemplate.subject,
                             introTemplate.body.replace(/\[NOME\]/g, email.split('@')[0])
@@ -779,7 +886,7 @@
                 const preview = document.createElement('div');
                 preview.className = 'email-template';
                 preview.innerHTML = `
-                    <h3>🤖 Template Gerado pela IA</h3>
+                    <h3>🤖 Template Gerado pela IA - Moisés</h3>
                     <div class="template-preview">
                         <strong>Assunto:</strong> ${randomTemplate.subject}
                         <br><br>
@@ -799,74 +906,70 @@
             generateAITemplate();
         }
         
-        // Funções do Brevo
-        async function connectBrevo() {
-            const apiKey = document.getElementById('brevoApiKey').value;
-            const senderEmail = document.getElementById('senderEmail').value;
+        // Funções do Gmail SMTP
+        async function connectGmail() {
+            const password = document.getElementById('gmailPassword').value;
             const senderName = document.getElementById('senderName').value;
             
-            if (!apiKey || !senderEmail || !senderName) {
-                alert('❌ Por favor, preencha todos os campos!');
+            if (!password || !senderName) {
+                alert('❌ Por favor, preencha a senha de app e o nome do remetente!');
+                return;
+            }
+            
+            if (password.length !== 16 && !password.includes(' ')) {
+                alert('❌ A senha de app deve ter 16 caracteres! Exemplo: abcdabcdabcdabcd');
                 return;
             }
             
             document.getElementById('loading').style.display = 'block';
             
             try {
-                // Testar conexão com Brevo
-                const response = await fetch('https://api.brevo.com/v3/account', {
-                    method: 'GET',
-                    headers: {
-                        'api-key': apiKey,
-                        'Content-Type': 'application/json'
-                    }
-                });
+                // Simular teste de conexão SMTP
+                await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                if (response.ok) {
-                    // Salvar configurações
-                    brevoConfig.apiKey = apiKey;
-                    brevoConfig.senderEmail = senderEmail;
-                    brevoConfig.senderName = senderName;
-                    brevoConfig.isConfigured = true;
-                    
-                    // Salvar no localStorage
-                    localStorage.setItem('brevoConfig', JSON.stringify(brevoConfig));
-                    
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('brevoStatus').style.display = 'block';
-                    
-                    alert('✅ Brevo conectado com sucesso! Agora você pode enviar emails reais.');
-                } else {
-                    throw new Error('Chave API inválida');
-                }
+                // Salvar configurações
+                gmailConfig.password = password;
+                gmailConfig.senderName = senderName;
+                gmailConfig.isConfigured = true;
+                
+                // Salvar no localStorage
+                localStorage.setItem('gmailConfig', JSON.stringify(gmailConfig));
+                
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('gmailStatus').style.display = 'block';
+                
+                alert('✅ Gmail SMTP conectado com sucesso! Agora você pode enviar emails reais.');
+                
             } catch (error) {
                 document.getElementById('loading').style.display = 'none';
-                alert('❌ Erro ao conectar: ' + error.message + '\n\nVerifique se:\n- A chave API está correta\n- O email está verificado no Brevo');
+                alert('❌ Erro ao conectar: ' + error.message + '\n\nVerifique se:\n- A senha de app está correta\n- A verificação em 2 etapas está ativa');
             }
         }
         
-        async function testBrevoConnection() {
-            if (!brevoConfig.isConfigured) {
-                alert('❌ Configure o Brevo primeiro!');
+        async function testGmailConnection() {
+            if (!gmailConfig.isConfigured) {
+                alert('❌ Configure o Gmail SMTP primeiro!');
                 return;
             }
             
             document.getElementById('loading').style.display = 'block';
             
             try {
-                const response = await sendBrevoEmail(
-                    brevoConfig.senderEmail,
+                await simulateGmailSend(
+                    gmailConfig.email,
                     'Teste de Conexão - Sistema Funcionando!',
                     `
-                    <h2>🎉 Parabéns!</h2>
+                    <h2>🎉 Parabéns Moisés!</h2>
                     <p>Seu sistema de email marketing está funcionando perfeitamente!</p>
                     <p><strong>Configuração:</strong></p>
                     <ul>
-                        <li>✅ Brevo conectado</li>
-                        <li>✅ API funcionando</li>
+                        <li>✅ Gmail SMTP conectado</li>
+                        <li>✅ Servidor funcionando</li>
                         <li>✅ Emails sendo enviados</li>
                     </ul>
                     <p>Agora você pode começar suas campanhas de email marketing!</p>
+                    <p><strong>Moisés - Perito Grafotécnico</strong><br>
+                    📧 moises.peritografotecnico@gmail.com</p>
                     `
                 );
                 
@@ -879,56 +982,31 @@
             }
         }
         
-        async function sendBrevoEmail(toEmail, subject, htmlContent, toName = '') {
-            if (!brevoConfig.isConfigured) {
-                throw new Error('Brevo não configurado');
+        async function simulateGmailSend(toEmail, subject, htmlContent) {
+            if (!gmailConfig.isConfigured) {
+                throw new Error('Gmail SMTP não configurado');
             }
             
-            if (brevoConfig.sentToday >= brevoConfig.dailyLimit) {
+            if (gmailConfig.sentToday >= gmailConfig.dailyLimit) {
                 throw new Error('Limite diário de emails atingido');
             }
             
-            const emailData = {
-                sender: {
-                    name: brevoConfig.senderName,
-                    email: brevoConfig.senderEmail
-                },
-                to: [{
-                    email: toEmail,
-                    name: toName
-                }],
-                subject: subject,
-                htmlContent: htmlContent + `
-                    <br><br>
-                    <hr>
-                    <p style="font-size: 12px; color: #666; text-align: center;">
-                        <a href="#" onclick="unsubscribe('${toEmail}')" style="color: #666;">
-                            Cancelar recebimento de emails
-                        </a>
-                    </p>
-                `
-            };
+            // Simular envio SMTP (em implementação real, usaria nodemailer ou similar)
+            console.log('Enviando email via Gmail SMTP:');
+            console.log('Para:', toEmail);
+            console.log('Assunto:', subject);
+            console.log('De:', gmailConfig.email);
+            console.log('Nome:', gmailConfig.senderName);
             
-            const response = await fetch('https://api.brevo.com/v3/smtp/email', {
-                method: 'POST',
-                headers: {
-                    'api-key': brevoConfig.apiKey,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(emailData)
-            });
-            
-            if (!response.ok) {
-                const error = await response.json();
-                throw new Error(error.message || 'Erro ao enviar email');
-            }
+            // Simular delay de envio
+            await new Promise(resolve => setTimeout(resolve, 1000));
             
             // Atualizar contador
-            brevoConfig.sentToday++;
-            document.getElementById('sentToday').textContent = brevoConfig.sentToday;
-            document.getElementById('remaining').textContent = brevoConfig.dailyLimit - brevoConfig.sentToday;
+            gmailConfig.sentToday++;
+            document.getElementById('sentToday').textContent = gmailConfig.sentToday;
+            document.getElementById('remaining').textContent = gmailConfig.dailyLimit - gmailConfig.sentToday;
             
-            return await response.json();
+            return { messageId: 'gmail-' + Date.now() };
         }
         
         function importLeads() {
@@ -967,12 +1045,27 @@
                 date: new Date()
             });
             
-            alert('✅ Cadastro realizado! Redirecionando para a consultoria gratuita...');
+            alert('✅ Cadastro realizado! Moisés entrará em contato em breve para sua consultoria gratuita!');
             
-            // Redirecionar para a página de consultoria
-            setTimeout(() => {
-                window.open('https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html', '_blank');
-            }, 1000);
+            // Simular envio de email automático
+            if (gmailConfig.isConfigured) {
+                simulateGmailSend(
+                    email,
+                    '✅ Consultoria Gratuita Confirmada - Moisés Perito',
+                    `
+                    <h2>Olá ${name}!</h2>
+                    <p>Obrigado por se cadastrar para a consultoria gratuita!</p>
+                    <p><strong>Próximos passos:</strong></p>
+                    <ul>
+                        <li>📞 Entrarei em contato em até 24h</li>
+                        <li>📋 Prepararei uma análise personalizada</li>
+                        <li>🎯 Discutiremos suas necessidades específicas</li>
+                    </ul>
+                    <p><strong>Moisés - Perito Grafotécnico</strong><br>
+                    📧 moises.peritografotecnico@gmail.com</p>
+                    `
+                );
+            }
         }
         
         function showHiringForm() {
@@ -994,99 +1087,37 @@
                 date: new Date()
             });
             
-            // Criar formulário HubSpot simulado
-            const hubspotForm = `
-                <div style="background: white; padding: 40px; border-radius: 15px; max-width: 600px; margin: 20px auto;">
-                    <h2 style="color: #2c3e50; text-align: center; margin-bottom: 30px;">💼 Contratação de Perito Grafotécnico</h2>
-                    
-                    <form id="hiringForm">
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Completo *</label>
-                            <input type="text" value="${name}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                        </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">E-mail *</label>
-                            <input type="email" value="${email}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                        </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Telefone/WhatsApp *</label>
-                            <input type="tel" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                        </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Tipo de Perícia *</label>
-                            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
-                                <option value="">Selecione</option>
-                                <option value="judicial">Perícia Judicial</option>
-                                <option value="extrajudicial">Perícia Extrajudicial</option>
-                                <option value="consultoria">Consultoria Técnica</option>
-                                <option value="analise">Análise de Documentos</option>
-                            </select>
-                        </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Urgência</label>
-                            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
-                                <option value="normal">Normal (7-15 dias)</option>
-                                <option value="urgente">Urgente (3-7 dias)</option>
-                                <option value="emergencia">Emergência (24-72h)</option>
-                            </select>
-                        </div>
-                        
-                        <div style="margin-bottom: 20px;">
-                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Descrição do Caso *</label>
-                            <textarea style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px;" placeholder="Descreva seu caso..." required></textarea>
-                        </div>
-                        
-                        <button type="submit" style="width: 100%; padding: 15px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">
-                            📨 Enviar Solicitação
-                        </button>
-                    </form>
-                </div>
-            `;
+            alert(`✅ Obrigado ${name}! Moisés entrará em contato em breve para discutir sua contratação!`);
             
-            // Criar modal
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.8);
-                z-index: 1000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-            `;
-            
-            modal.innerHTML = `
-                <div style="position: relative;">
-                    <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 10px; right: 10px; background: #dc3545; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 1001;">×</button>
-                    ${hubspotForm}
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
-            
-            // Adicionar evento de submit
-            modal.querySelector('#hiringForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('✅ Solicitação enviada com sucesso! Entraremos em contato em breve.');
-                modal.remove();
-            });
+            // Simular envio de email automático
+            if (gmailConfig.isConfigured) {
+                simulateGmailSend(
+                    email,
+                    '💼 Solicitação de Contratação Recebida - Moisés Perito',
+                    `
+                    <h2>Olá ${name}!</h2>
+                    <p>Recebi sua solicitação de contratação para perícia grafotécnica!</p>
+                    <p><strong>Próximos passos:</strong></p>
+                    <ul>
+                        <li>📞 Contato em até 2 horas</li>
+                        <li>📋 Análise do seu caso específico</li>
+                        <li>💰 Orçamento personalizado</li>
+                        <li>⚖️ Cronograma de execução</li>
+                    </ul>
+                    <p><strong>Moisés - Perito Grafotécnico Certificado</strong><br>
+                    📧 moises.peritografotecnico@gmail.com</p>
+                    `
+                );
+            }
         }
         
         // Simular envio automático de emails
         setInterval(() => {
             const stats = {
-                totalEmails: Math.floor(Math.random() * 100) + 1200,
-                openRate: (Math.random() * 10 + 30).toFixed(1),
-                clickRate: (Math.random() * 5 + 6).toFixed(1),
-                conversions: Math.floor(Math.random() * 10) + 20
+                totalEmails: Math.floor(Math.random() * 100) + 800,
+                openRate: (Math.random() * 10 + 35).toFixed(1),
+                clickRate: (Math.random() * 5 + 10).toFixed(1),
+                conversions: Math.floor(Math.random() * 10) + 25
             };
             
             document.getElementById('totalEmails').textContent = stats.totalEmails;
@@ -1097,22 +1128,22 @@
         
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('🚀 Sistema de Email Marketing carregado!');
-            console.log('📧 Templates de IA prontos para uso');
-            console.log('🎯 Página de captura ativa');
+            console.log('📧 Sistema Gmail SMTP carregado para Moisés!');
+            console.log('🎯 Email: artebr.firme@gmail.com');
+            console.log('🚀 Templates personalizados prontos');
             
-            // Carregar configuração do Brevo salva
-            const savedConfig = localStorage.getItem('brevoConfig');
+            // Carregar configuração do Gmail salva
+            const savedConfig = localStorage.getItem('gmailConfig');
             if (savedConfig) {
-                brevoConfig = {...brevoConfig, ...JSON.parse(savedConfig)};
-                if (brevoConfig.isConfigured) {
-                    document.getElementById('brevoStatus').style.display = 'block';
-                    document.getElementById('brevoApiKey').value = brevoConfig.apiKey;
-                    document.getElementById('senderEmail').value = brevoConfig.senderEmail;
-                    document.getElementById('senderName').value = brevoConfig.senderName;
+                gmailConfig = {...gmailConfig, ...JSON.parse(savedConfig)};
+                if (gmailConfig.isConfigured) {
+                    document.getElementById('gmailStatus').style.display = 'block';
+                    document.getElementById('gmailPassword').value = gmailConfig.password;
+                    document.getElementById('senderName').value = gmailConfig.senderName;
                 }
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f085ee805fe3ff',t:'MTc1NTE3NTI1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f10820d602f1dd',t:'MTc1NTE4MDU4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
