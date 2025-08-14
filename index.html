@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Email Marketing - Perícia Grafotécnica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.2em;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 40px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            box-shadow: 0 10px 20px rgba(108, 117, 125, 0.3);
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+        }
+        
+        .email-list {
+            background: #f8f9fa;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .email-preview {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .email-preview h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .campaign-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .campaign-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-paused {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-draft {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .capture-page {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 20px;
+        }
+        
+        .capture-page h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        
+        .capture-page p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .capture-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .capture-form input {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .btn-free {
+            background: #28a745;
+        }
+        
+        .btn-hire {
+            background: #dc3545;
+        }
+        
+        .email-template {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            background: #f8f9fa;
+        }
+        
+        .template-preview {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Sistema de Email Marketing</h1>
+            <p>Captação Inteligente para Perícia Grafotécnica</p>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="nav-tab" onclick="showTab('campaigns')">📧 Campanhas</button>
+            <button class="nav-tab" onclick="showTab('templates')">🎨 Templates</button>
+            <button class="nav-tab" onclick="showTab('leads')">👥 Leads</button>
+            <button class="nav-tab" onclick="showTab('capture')">🎯 Página de Captura</button>
+            <button class="nav-tab" onclick="showTab('config')">⚙️ Configurar Brevo</button>
+        </div>
+        
+        <!-- Dashboard -->
+        <div class="tab-content active" id="dashboard">
+            <h2>📈 Visão Geral das Campanhas</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalEmails">1,247</div>
+                    <div class="stat-label">Emails Enviados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="openRate">34.2%</div>
+                    <div class="stat-label">Taxa de Abertura</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="clickRate">8.7%</div>
+                    <div class="stat-label">Taxa de Clique</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="conversions">23</div>
+                    <div class="stat-label">Conversões</div>
+                </div>
+            </div>
+            
+            <div class="campaign-card">
+                <h3>🎯 Campanhas Ativas</h3>
+                <div style="margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px; margin-bottom: 10px;">
+                        <div>
+                            <strong>Campanha: Perícia Grafotécnica Profissional</strong>
+                            <br><small>Próximo envio: Hoje às 14:00</small>
+                        </div>
+                        <span class="campaign-status status-active">Ativa</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                        <div>
+                            <strong>Campanha: Consultoria Gratuita</strong>
+                            <br><small>Próximo envio: Amanhã às 09:00</small>
+                        </div>
+                        <span class="campaign-status status-active">Ativa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Campanhas -->
+        <div class="tab-content" id="campaigns">
+            <h2>📧 Gerenciar Campanhas</h2>
+            
+            <div class="form-group">
+                <label for="campaignName">Nome da Campanha</label>
+                <input type="text" id="campaignName" placeholder="Ex: Perícia Grafotécnica - Novembro 2024">
+            </div>
+            
+            <div class="form-group">
+                <label for="campaignType">Tipo de Campanha</label>
+                <select id="campaignType">
+                    <option value="consultoria">Consultoria Gratuita</option>
+                    <option value="contratacao">Contratação de Perito</option>
+                    <option value="educativa">Conteúdo Educativo</option>
+                    <option value="promocional">Oferta Promocional</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="sendFrequency">Frequência de Envio</label>
+                <select id="sendFrequency">
+                    <option value="daily">Diário</option>
+                    <option value="weekly">Semanal</option>
+                    <option value="biweekly">Quinzenal</option>
+                    <option value="monthly">Mensal</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="emailList">Lista de Emails (um por linha)</label>
+                <textarea id="emailList" placeholder="cliente1@email.com&#10;cliente2@email.com&#10;cliente3@email.com"></textarea>
+            </div>
+            
+            <button class="btn" onclick="createCampaign()">🚀 Criar Campanha</button>
+            <button class="btn btn-secondary" onclick="generateAITemplate()">🤖 Gerar Template com IA</button>
+        </div>
+        
+        <!-- Templates -->
+        <div class="tab-content" id="templates">
+            <h2>🎨 Templates de Email</h2>
+            
+            <div class="email-template">
+                <h3>📋 Template: Consultoria Gratuita</h3>
+                <div class="template-preview" id="template1">
+                    <strong>Assunto:</strong> 🔍 Descubra se Seus Documentos São Autênticos - Análise GRATUITA!
+                    <br><br>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                        <p><strong>Olá [NOME],</strong></p>
+                        <p>Você sabia que <strong>73% dos documentos questionados</strong> apresentam algum tipo de irregularidade?</p>
+                        <p>Como especialista em Grafoscopia, posso ajudar você a descobrir a verdade sobre qualquer documento suspeito.</p>
+                        <p><strong>🎁 OFERTA ESPECIAL:</strong> Análise grafotécnica GRATUITA para novos clientes!</p>
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                                ✅ QUERO MINHA ANÁLISE GRATUITA
+                            </a>
+                        </div>
+                        <p><small>Esta oferta é válida apenas por tempo limitado!</small></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="email-template">
+                <h3>💼 Template: Contratação Profissional</h3>
+                <div class="template-preview" id="template2">
+                    <strong>Assunto:</strong> ⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Certificado Disponível
+                    <br><br>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                        <p><strong>Prezado(a) [NOME],</strong></p>
+                        <p>Quando a <strong>autenticidade de documentos</strong> está em questão, você precisa de um especialista confiável.</p>
+                        <p><strong>✅ Perito Assistente Técnico Certificado</strong><br>
+                        ✅ Laudos aceitos em tribunais<br>
+                        ✅ Mais de 500 casos analisados<br>
+                        ✅ Relatórios técnicos detalhados</p>
+                        <div style="text-align: center; margin: 20px 0;">
+                            <a href="#" style="background: #dc3545; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
+                                🎯 CONTRATAR PERITO AGORA
+                            </a>
+                        </div>
+                        <p><strong>Urgência?</strong> Atendimento em 24h para casos emergenciais.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="generateNewTemplate()">🤖 Gerar Novo Template com IA</button>
+        </div>
+        
+        <!-- Leads -->
+        <div class="tab-content" id="leads">
+            <h2>👥 Gerenciar Leads</h2>
+            
+            <div class="form-group">
+                <label for="importLeads">Importar Lista de Leads</label>
+                <textarea id="importLeads" placeholder="nome1@email.com, João Silva&#10;nome2@email.com, Maria Santos&#10;nome3@email.com, Pedro Costa"></textarea>
+            </div>
+            
+            <button class="btn" onclick="importLeads()">📥 Importar Leads</button>
+            
+            <div class="campaign-card" style="margin-top: 30px;">
+                <h3>📊 Leads Cadastrados</h3>
+                <div id="leadsList">
+                    <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; margin: 10px 0;">
+                        <strong>João Silva</strong> - joao@email.com
+                        <span style="float: right; color: #28a745;">✅ Ativo</span>
+                    </div>
+                    <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; margin: 10px 0;">
+                        <strong>Maria Santos</strong> - maria@email.com
+                        <span style="float: right; color: #28a745;">✅ Ativo</span>
+                    </div>
+                    <div style="padding: 15px; background: #f8f9fa; border-radius: 8px; margin: 10px 0;">
+                        <strong>Pedro Costa</strong> - pedro@email.com
+                        <span style="float: right; color: #ffc107;">⏸️ Pausado</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Configuração Brevo -->
+        <div class="tab-content" id="config">
+            <h2>⚙️ Configurar Brevo (SendinBlue)</h2>
+            
+            <div class="campaign-card">
+                <h3>🚀 Passo a Passo para Configurar</h3>
+                <ol style="line-height: 2; margin: 20px 0;">
+                    <li><strong>Acesse:</strong> <a href="https://www.brevo.com" target="_blank" style="color: #667eea;">https://www.brevo.com</a></li>
+                    <li><strong>Crie sua conta gratuita</strong> (300 emails/dia)</li>
+                    <li><strong>Vá em:</strong> Account → SMTP & API → API Keys</li>
+                    <li><strong>Crie uma nova API Key</strong></li>
+                    <li><strong>Cole a chave abaixo</strong> e clique em "Conectar"</li>
+                </ol>
+            </div>
+            
+            <div class="form-group">
+                <label for="brevoApiKey">🔑 Chave API do Brevo</label>
+                <input type="password" id="brevoApiKey" placeholder="xkeysib-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" style="font-family: monospace;">
+                <small style="color: #666; display: block; margin-top: 5px;">
+                    ⚠️ Mantenha sua chave segura! Ela permite enviar emails em seu nome.
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="senderEmail">📧 Email Remetente</label>
+                <input type="email" id="senderEmail" placeholder="seu-email@dominio.com">
+                <small style="color: #666; display: block; margin-top: 5px;">
+                    Use um email verificado no Brevo
+                </small>
+            </div>
+            
+            <div class="form-group">
+                <label for="senderName">👤 Nome do Remetente</label>
+                <input type="text" id="senderName" placeholder="Seu Nome - Perito Grafotécnico">
+            </div>
+            
+            <button class="btn" onclick="connectBrevo()">🔗 Conectar com Brevo</button>
+            
+            <div id="brevoStatus" style="margin-top: 20px; display: none;">
+                <div class="campaign-card" style="background: #d4edda; border-color: #c3e6cb;">
+                    <h3 style="color: #155724;">✅ Brevo Conectado!</h3>
+                    <p style="color: #155724; margin: 10px 0;">
+                        <strong>Limite diário:</strong> <span id="dailyLimit">300</span> emails<br>
+                        <strong>Enviados hoje:</strong> <span id="sentToday">0</span> emails<br>
+                        <strong>Restantes:</strong> <span id="remaining">300</span> emails
+                    </p>
+                    <button class="btn btn-secondary" onclick="testBrevoConnection()">🧪 Testar Conexão</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Página de Captura -->
+        <div class="tab-content" id="capture">
+            <div class="capture-page">
+                <h2>🔍 Descubra a Verdade Sobre Seus Documentos</h2>
+                <p>Análise Grafotécnica Profissional com Tecnologia de Ponta</p>
+                
+                <div class="capture-form">
+                    <h3 style="margin-bottom: 20px;">📋 Cadastre-se e Receba:</h3>
+                    <ul style="text-align: left; margin-bottom: 30px;">
+                        <li>✅ Consultoria gratuita personalizada</li>
+                        <li>✅ Análise preliminar de documentos</li>
+                        <li>✅ Relatório técnico básico</li>
+                        <li>✅ Orientações especializadas</li>
+                    </ul>
+                    
+                    <form id="captureForm">
+                        <input type="text" id="leadName" placeholder="Seu nome completo" required>
+                        <input type="email" id="leadEmail" placeholder="Seu melhor email" required>
+                        <input type="tel" id="leadPhone" placeholder="WhatsApp (opcional)">
+                        <select id="leadInterest">
+                            <option value="">Como podemos ajudar?</option>
+                            <option value="consultoria">Consultoria Gratuita</option>
+                            <option value="analise">Análise de Documento</option>
+                            <option value="pericia">Perícia Judicial</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        
+                        <div class="action-buttons">
+                            <button type="button" class="btn btn-free" onclick="redirectToFreeConsultation()">
+                                🆓 Consultoria Gratuita
+                            </button>
+                            <button type="button" class="btn btn-hire" onclick="showHiringForm()">
+                                💼 Contratar Perito
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <h3>Processando...</h3>
+            <p>Aguarde enquanto configuramos sua campanha</p>
+        </div>
+    </div>
+
+    <script>
+        // Dados simulados
+        let campaigns = [];
+        let leads = [];
+        let templates = [];
+        
+        // Configuração do Brevo
+        let brevoConfig = {
+            apiKey: '',
+            isConfigured: false,
+            dailyLimit: 300,
+            sentToday: 0
+        };
+        
+        // Templates de email com IA
+        const aiTemplates = {
+            consultoria: [
+                {
+                    subject: "🔍 Seus Documentos Estão Seguros? Descubra AGORA (Análise Gratuita)",
+                    body: `<p><strong>Olá [NOME],</strong></p>
+                    <p>Você confiaria sua vida financeira a um documento que pode ser falso?</p>
+                    <p><strong>FATO ALARMANTE:</strong> 1 em cada 4 documentos analisados apresenta irregularidades!</p>
+                    <p>Como Perito Grafotécnico, já identifiquei mais de <strong>500 fraudes documentais</strong> que poderiam ter causado prejuízos milionários.</p>
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <p><strong>🎁 OFERTA EXCLUSIVA:</strong> Análise grafotécnica GRATUITA para os primeiros 10 cadastros!</p>
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                            ✅ QUERO MINHA ANÁLISE GRATUITA
+                        </a>
+                    </div>
+                    <p><strong>Por que escolher nossa análise?</strong></p>
+                    <ul>
+                        <li>✅ Tecnologia de ponta em grafoscopia</li>
+                        <li>✅ Relatório técnico detalhado</li>
+                        <li>✅ Perito certificado e experiente</li>
+                        <li>✅ Resultados em 24-48h</li>
+                    </ul>
+                    <p><small>⏰ Esta oferta expira em 48 horas!</small></p>`
+                },
+                {
+                    subject: "⚠️ [NOME], Seu Documento Pode Estar Comprometido - Verificação Urgente",
+                    body: `<p><strong>Caro(a) [NOME],</strong></p>
+                    <p>Imagine descobrir que um documento importante é falso... <strong>apenas quando já é tarde demais.</strong></p>
+                    <p>Isso acontece mais do que você imagina:</p>
+                    <ul>
+                        <li>🔴 Contratos fraudulentos</li>
+                        <li>🔴 Assinaturas falsificadas</li>
+                        <li>🔴 Documentos alterados</li>
+                        <li>🔴 Identidades roubadas</li>
+                    </ul>
+                    <p><strong>A boa notícia?</strong> Você pode se proteger AGORA!</p>
+                    <div style="background: #d4edda; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <p><strong>🛡️ PROTEÇÃO GRATUITA:</strong> Análise preliminar sem custo para novos clientes!</p>
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" style="background: #dc3545; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                            🚨 VERIFICAR MEUS DOCUMENTOS
+                        </a>
+                    </div>
+                    <p>Não deixe para depois. Sua segurança documental é nossa prioridade.</p>`
+                }
+            ],
+            contratacao: [
+                {
+                    subject: "⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Certificado Disponível",
+                    body: `<p><strong>Prezado(a) [NOME],</strong></p>
+                    <p>Quando a <strong>justiça</strong> depende da autenticidade de um documento, você precisa do melhor.</p>
+                    <p><strong>🏆 PERITO ASSISTENTE TÉCNICO CERTIFICADO</strong></p>
+                    <ul>
+                        <li>✅ Laudos aceitos em todos os tribunais</li>
+                        <li>✅ Mais de 500 casos analisados</li>
+                        <li>✅ Tecnologia de última geração</li>
+                        <li>✅ Relatórios técnicos irrefutáveis</li>
+                        <li>✅ Atendimento 24h para emergências</li>
+                    </ul>
+                    <div style="background: #f8d7da; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                        <p><strong>⚡ URGÊNCIA?</strong> Atendemos casos emergenciais em 24 horas!</p>
+                    </div>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <a href="#" onclick="showHiringForm()" style="background: #667eea; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+                            🎯 CONTRATAR PERITO AGORA
+                        </a>
+                    </div>
+                    <p><strong>Casos que atendemos:</strong></p>
+                    <ul>
+                        <li>📋 Perícias judiciais</li>
+                        <li>📋 Análises extrajudiciais</li>
+                        <li>📋 Consultoria empresarial</li>
+                        <li>📋 Investigações particulares</li>
+                    </ul>`
+                }
+            ]
+        };
+        
+        function showTab(tabName) {
+            // Ocultar todas as abas
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Mostrar aba selecionada
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        async function createCampaign() {
+            const name = document.getElementById('campaignName').value;
+            const type = document.getElementById('campaignType').value;
+            const frequency = document.getElementById('sendFrequency').value;
+            const emails = document.getElementById('emailList').value;
+            
+            if (!name || !emails) {
+                alert('Por favor, preencha o nome da campanha e a lista de emails.');
+                return;
+            }
+            
+            if (!brevoConfig.isConfigured) {
+                alert('❌ Configure o Brevo primeiro na aba "Configurar Brevo"!');
+                return;
+            }
+            
+            // Mostrar loading
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                // Processar lista de emails
+                const emailList = emails.split('\n').filter(email => email.trim());
+                
+                // Enviar primeiro email (introdutório)
+                const introTemplate = aiTemplates[type] ? aiTemplates[type][0] : aiTemplates.consultoria[0];
+                
+                for (let email of emailList) {
+                    if (email.trim()) {
+                        await sendBrevoEmail(
+                            email.trim(),
+                            introTemplate.subject,
+                            introTemplate.body.replace(/\[NOME\]/g, email.split('@')[0])
+                        );
+                        
+                        // Pequena pausa entre envios
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                    }
+                }
+                
+                document.getElementById('loading').style.display = 'none';
+                alert(`✅ Campanha "${name}" criada e primeiro email enviado para ${emailList.length} contatos!`);
+                
+                // Limpar formulário
+                document.getElementById('campaignName').value = '';
+                document.getElementById('emailList').value = '';
+                
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                alert('❌ Erro ao criar campanha: ' + error.message);
+            }
+        }
+        
+        function generateAITemplate() {
+            const type = document.getElementById('campaignType').value;
+            
+            if (!type) {
+                alert('Selecione o tipo de campanha primeiro.');
+                return;
+            }
+            
+            document.getElementById('loading').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                
+                const templates = aiTemplates[type] || aiTemplates.consultoria;
+                const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
+                
+                // Mostrar template gerado
+                const preview = document.createElement('div');
+                preview.className = 'email-template';
+                preview.innerHTML = `
+                    <h3>🤖 Template Gerado pela IA</h3>
+                    <div class="template-preview">
+                        <strong>Assunto:</strong> ${randomTemplate.subject}
+                        <br><br>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            ${randomTemplate.body}
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('templates').appendChild(preview);
+                
+                alert('🤖 Novo template gerado com IA! Confira na seção Templates.');
+            }, 3000);
+        }
+        
+        function generateNewTemplate() {
+            generateAITemplate();
+        }
+        
+        // Funções do Brevo
+        async function connectBrevo() {
+            const apiKey = document.getElementById('brevoApiKey').value;
+            const senderEmail = document.getElementById('senderEmail').value;
+            const senderName = document.getElementById('senderName').value;
+            
+            if (!apiKey || !senderEmail || !senderName) {
+                alert('❌ Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                // Testar conexão com Brevo
+                const response = await fetch('https://api.brevo.com/v3/account', {
+                    method: 'GET',
+                    headers: {
+                        'api-key': apiKey,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Salvar configurações
+                    brevoConfig.apiKey = apiKey;
+                    brevoConfig.senderEmail = senderEmail;
+                    brevoConfig.senderName = senderName;
+                    brevoConfig.isConfigured = true;
+                    
+                    // Salvar no localStorage
+                    localStorage.setItem('brevoConfig', JSON.stringify(brevoConfig));
+                    
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('brevoStatus').style.display = 'block';
+                    
+                    alert('✅ Brevo conectado com sucesso! Agora você pode enviar emails reais.');
+                } else {
+                    throw new Error('Chave API inválida');
+                }
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                alert('❌ Erro ao conectar: ' + error.message + '\n\nVerifique se:\n- A chave API está correta\n- O email está verificado no Brevo');
+            }
+        }
+        
+        async function testBrevoConnection() {
+            if (!brevoConfig.isConfigured) {
+                alert('❌ Configure o Brevo primeiro!');
+                return;
+            }
+            
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                const response = await sendBrevoEmail(
+                    brevoConfig.senderEmail,
+                    'Teste de Conexão - Sistema Funcionando!',
+                    `
+                    <h2>🎉 Parabéns!</h2>
+                    <p>Seu sistema de email marketing está funcionando perfeitamente!</p>
+                    <p><strong>Configuração:</strong></p>
+                    <ul>
+                        <li>✅ Brevo conectado</li>
+                        <li>✅ API funcionando</li>
+                        <li>✅ Emails sendo enviados</li>
+                    </ul>
+                    <p>Agora você pode começar suas campanhas de email marketing!</p>
+                    `
+                );
+                
+                document.getElementById('loading').style.display = 'none';
+                alert('✅ Email de teste enviado! Verifique sua caixa de entrada.');
+                
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                alert('❌ Erro no teste: ' + error.message);
+            }
+        }
+        
+        async function sendBrevoEmail(toEmail, subject, htmlContent, toName = '') {
+            if (!brevoConfig.isConfigured) {
+                throw new Error('Brevo não configurado');
+            }
+            
+            if (brevoConfig.sentToday >= brevoConfig.dailyLimit) {
+                throw new Error('Limite diário de emails atingido');
+            }
+            
+            const emailData = {
+                sender: {
+                    name: brevoConfig.senderName,
+                    email: brevoConfig.senderEmail
+                },
+                to: [{
+                    email: toEmail,
+                    name: toName
+                }],
+                subject: subject,
+                htmlContent: htmlContent + `
+                    <br><br>
+                    <hr>
+                    <p style="font-size: 12px; color: #666; text-align: center;">
+                        <a href="#" onclick="unsubscribe('${toEmail}')" style="color: #666;">
+                            Cancelar recebimento de emails
+                        </a>
+                    </p>
+                `
+            };
+            
+            const response = await fetch('https://api.brevo.com/v3/smtp/email', {
+                method: 'POST',
+                headers: {
+                    'api-key': brevoConfig.apiKey,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(emailData)
+            });
+            
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || 'Erro ao enviar email');
+            }
+            
+            // Atualizar contador
+            brevoConfig.sentToday++;
+            document.getElementById('sentToday').textContent = brevoConfig.sentToday;
+            document.getElementById('remaining').textContent = brevoConfig.dailyLimit - brevoConfig.sentToday;
+            
+            return await response.json();
+        }
+        
+        function importLeads() {
+            const leadsText = document.getElementById('importLeads').value;
+            
+            if (!leadsText) {
+                alert('Por favor, insira a lista de leads.');
+                return;
+            }
+            
+            document.getElementById('loading').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                alert('✅ Leads importados com sucesso!');
+                document.getElementById('importLeads').value = '';
+            }, 1500);
+        }
+        
+        function redirectToFreeConsultation() {
+            const name = document.getElementById('leadName').value;
+            const email = document.getElementById('leadEmail').value;
+            
+            if (!name || !email) {
+                alert('Por favor, preencha seu nome e email.');
+                return;
+            }
+            
+            // Salvar lead
+            leads.push({
+                name: name,
+                email: email,
+                phone: document.getElementById('leadPhone').value,
+                interest: document.getElementById('leadInterest').value,
+                source: 'consultoria_gratuita',
+                date: new Date()
+            });
+            
+            alert('✅ Cadastro realizado! Redirecionando para a consultoria gratuita...');
+            
+            // Redirecionar para a página de consultoria
+            setTimeout(() => {
+                window.open('https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html', '_blank');
+            }, 1000);
+        }
+        
+        function showHiringForm() {
+            const name = document.getElementById('leadName').value;
+            const email = document.getElementById('leadEmail').value;
+            
+            if (!name || !email) {
+                alert('Por favor, preencha seu nome e email primeiro.');
+                return;
+            }
+            
+            // Salvar lead
+            leads.push({
+                name: name,
+                email: email,
+                phone: document.getElementById('leadPhone').value,
+                interest: 'contratacao_perito',
+                source: 'contratacao_direta',
+                date: new Date()
+            });
+            
+            // Criar formulário HubSpot simulado
+            const hubspotForm = `
+                <div style="background: white; padding: 40px; border-radius: 15px; max-width: 600px; margin: 20px auto;">
+                    <h2 style="color: #2c3e50; text-align: center; margin-bottom: 30px;">💼 Contratação de Perito Grafotécnico</h2>
+                    
+                    <form id="hiringForm">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Nome Completo *</label>
+                            <input type="text" value="${name}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">E-mail *</label>
+                            <input type="email" value="${email}" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Telefone/WhatsApp *</label>
+                            <input type="tel" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Tipo de Perícia *</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                                <option value="">Selecione</option>
+                                <option value="judicial">Perícia Judicial</option>
+                                <option value="extrajudicial">Perícia Extrajudicial</option>
+                                <option value="consultoria">Consultoria Técnica</option>
+                                <option value="analise">Análise de Documentos</option>
+                            </select>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Urgência</label>
+                            <select style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                                <option value="normal">Normal (7-15 dias)</option>
+                                <option value="urgente">Urgente (3-7 dias)</option>
+                                <option value="emergencia">Emergência (24-72h)</option>
+                            </select>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: bold;">Descrição do Caso *</label>
+                            <textarea style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; min-height: 100px;" placeholder="Descreva seu caso..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" style="width: 100%; padding: 15px; background: #667eea; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;">
+                            📨 Enviar Solicitação
+                        </button>
+                    </form>
+                </div>
+            `;
+            
+            // Criar modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px;
+            `;
+            
+            modal.innerHTML = `
+                <div style="position: relative;">
+                    <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 10px; right: 10px; background: #dc3545; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 1001;">×</button>
+                    ${hubspotForm}
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Adicionar evento de submit
+            modal.querySelector('#hiringForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('✅ Solicitação enviada com sucesso! Entraremos em contato em breve.');
+                modal.remove();
+            });
+        }
+        
+        // Simular envio automático de emails
+        setInterval(() => {
+            const stats = {
+                totalEmails: Math.floor(Math.random() * 100) + 1200,
+                openRate: (Math.random() * 10 + 30).toFixed(1),
+                clickRate: (Math.random() * 5 + 6).toFixed(1),
+                conversions: Math.floor(Math.random() * 10) + 20
+            };
+            
+            document.getElementById('totalEmails').textContent = stats.totalEmails;
+            document.getElementById('openRate').textContent = stats.openRate + '%';
+            document.getElementById('clickRate').textContent = stats.clickRate + '%';
+            document.getElementById('conversions').textContent = stats.conversions;
+        }, 30000); // Atualizar a cada 30 segundos
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Sistema de Email Marketing carregado!');
+            console.log('📧 Templates de IA prontos para uso');
+            console.log('🎯 Página de captura ativa');
+            
+            // Carregar configuração do Brevo salva
+            const savedConfig = localStorage.getItem('brevoConfig');
+            if (savedConfig) {
+                brevoConfig = {...brevoConfig, ...JSON.parse(savedConfig)};
+                if (brevoConfig.isConfigured) {
+                    document.getElementById('brevoStatus').style.display = 'block';
+                    document.getElementById('brevoApiKey').value = brevoConfig.apiKey;
+                    document.getElementById('senderEmail').value = brevoConfig.senderEmail;
+                    document.getElementById('senderName').value = brevoConfig.senderName;
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f085ee805fe3ff',t:'MTc1NTE3NTI1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
