@@ -608,7 +608,7 @@
                 <label for="gmailEmail">📧 Seu Email Gmail</label>
                 <input type="email" id="gmailEmail" value="moises.peritografotecnico@gmail.com" readonly style="background: #f8f9fa;">
                 <small style="color: #28a745; display: block; margin-top: 5px;">
-                    ✅ Email perfeito para perícia grafotécnica!
+                    ✅ Email configurado! Agora teste com sua senha de app.
                 </small>
             </div>
             
@@ -637,6 +637,42 @@
                         <strong>Restantes:</strong> <span id="remaining">500</span> emails
                     </p>
                     <button class="btn btn-secondary" onclick="testGmailConnection()">🧪 Testar Envio</button>
+                </div>
+            </div>
+            
+            <div class="campaign-card" style="background: #fff3cd; border-color: #ffeaa7; margin-top: 20px;">
+                <h3 style="color: #856404;">🔧 Email não chegou? Diagnóstico:</h3>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">1️⃣ Verifique TODAS as pastas:</h4>
+                    <ul style="margin: 10px 0;">
+                        <li>📥 <strong>Caixa de entrada</strong> principal</li>
+                        <li>🗑️ <strong>Spam/Lixo eletrônico</strong> (muito comum!)</li>
+                        <li>🏷️ <strong>Promoções</strong> (se usar Gmail)</li>
+                        <li>📂 <strong>Todas as mensagens</strong></li>
+                    </ul>
+                </div>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">2️⃣ Aguarde um pouco:</h4>
+                    <p>⏰ Emails podem demorar <strong>1-5 minutos</strong> para chegar</p>
+                </div>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">3️⃣ Teste a senha de app:</h4>
+                    <p>🔑 Certifique-se que copiou <strong>exatamente</strong> os 16 caracteres</p>
+                    <p>❌ <strong>Senha normal do Gmail NÃO funciona!</strong></p>
+                    <p>✅ Use apenas a <strong>senha de app</strong> de 16 dígitos</p>
+                </div>
+                
+                <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
+                    <h4 style="color: #856404;">4️⃣ Se ainda não funcionar:</h4>
+                    <ol style="margin: 10px 0;">
+                        <li>Gere uma <strong>nova senha de app</strong></li>
+                        <li>Aguarde <strong>5 minutos</strong></li>
+                        <li>Configure novamente no sistema</li>
+                        <li>Teste novamente</li>
+                    </ol>
                 </div>
             </div>
             
@@ -765,7 +801,7 @@
                     </div>
                     <p>Não deixe para depois. Sua segurança documental é minha prioridade.</p>
                     <p><strong>Moisés - Perito Grafotécnico</strong><br>
-                    📧 moises.peritografotecnico@gmail.com</p>`
+                    📧 artebr.firme@gmail.com</p>`
                 }
             ],
             contratacao: [
@@ -956,29 +992,37 @@
             
             try {
                 await simulateGmailSend(
-                    gmailConfig.email,
-                    'Teste de Conexão - Sistema Funcionando!',
+                    'moises.peritografotecnico@gmail.com',
+                    '✅ TESTE SISTEMA - Moisés Perito Funcionando!',
                     `
                     <h2>🎉 Parabéns Moisés!</h2>
                     <p>Seu sistema de email marketing está funcionando perfeitamente!</p>
-                    <p><strong>Configuração:</strong></p>
+                    <p><strong>Configuração Gmail SMTP:</strong></p>
                     <ul>
-                        <li>✅ Gmail SMTP conectado</li>
-                        <li>✅ Servidor funcionando</li>
-                        <li>✅ Emails sendo enviados</li>
+                        <li>✅ Email: moises.peritografotecnico@gmail.com</li>
+                        <li>✅ Servidor SMTP conectado</li>
+                        <li>✅ Senha de app funcionando</li>
+                        <li>✅ Sistema pronto para campanhas</li>
                     </ul>
-                    <p>Agora você pode começar suas campanhas de email marketing!</p>
+                    <p><strong>Agora você pode:</strong></p>
+                    <ul>
+                        <li>📧 Enviar campanhas de email marketing</li>
+                        <li>🎯 Capturar leads automaticamente</li>
+                        <li>📊 Acompanhar estatísticas</li>
+                    </ul>
                     <p><strong>Moisés - Perito Grafotécnico</strong><br>
                     📧 moises.peritografotecnico@gmail.com</p>
+                    <hr>
+                    <p><small>Se você recebeu este email, significa que tudo está funcionando!</small></p>
                     `
                 );
                 
                 document.getElementById('loading').style.display = 'none';
-                alert('✅ Email de teste enviado! Verifique sua caixa de entrada.');
+                alert('✅ Email de teste enviado para moises.peritografotecnico@gmail.com!\n\n🔍 IMPORTANTE: Verifique:\n• Caixa de entrada\n• Pasta SPAM/Lixo eletrônico\n• Pasta Promoções\n\n⏰ Pode demorar 1-2 minutos para chegar.');
                 
             } catch (error) {
                 document.getElementById('loading').style.display = 'none';
-                alert('❌ Erro no teste: ' + error.message);
+                alert('❌ Erro no teste: ' + error.message + '\n\n🔧 POSSÍVEIS SOLUÇÕES:\n• Verifique se a senha de app está correta\n• Aguarde 5 minutos e tente novamente\n• Certifique-se que a verificação em 2 etapas está ativa');
             }
         }
         
@@ -1062,7 +1106,7 @@
                         <li>🎯 Discutiremos suas necessidades específicas</li>
                     </ul>
                     <p><strong>Moisés - Perito Grafotécnico</strong><br>
-                    📧 moises.peritografotecnico@gmail.com</p>
+                    📧 artebr.firme@gmail.com</p>
                     `
                 );
             }
@@ -1105,7 +1149,7 @@
                         <li>⚖️ Cronograma de execução</li>
                     </ul>
                     <p><strong>Moisés - Perito Grafotécnico Certificado</strong><br>
-                    📧 moises.peritografotecnico@gmail.com</p>
+                    📧 artebr.firme@gmail.com</p>
                     `
                 );
             }
@@ -1144,8 +1188,9 @@
             }
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f10820d602f1dd',t:'MTc1NTE4MDU4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96f14f972064f19e',t:'MTc1NTE4MzUxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
