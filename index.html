@@ -388,54 +388,68 @@
         <div class="tab-content" id="templates">
             <h2>🎨 Templates de Email</h2>
             
-            <div class="email-template">
-                <h3>📋 Template: Consultoria Gratuita - Moisés</h3>
-                <div class="template-preview" id="template1">
-                    <strong>Assunto:</strong> 🔍 Descubra se Seus Documentos São Autênticos - Análise GRATUITA com Moisés!
-                    <br><br>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <p><strong>Olá [NOME],</strong></p>
-                        <p>Sou <strong>Moisés, Perito Grafotécnico</strong>, e você sabia que <strong>73% dos documentos questionados</strong> apresentam algum tipo de irregularidade?</p>
-                        <p>Como especialista em Grafoscopia, posso ajudar você a descobrir a verdade sobre qualquer documento suspeito.</p>
-                        <p><strong>🎁 OFERTA ESPECIAL:</strong> Análise grafotécnica GRATUITA para novos clientes!</p>
-                        <div style="text-align: center; margin: 20px 0;">
-                            <a href="#" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
-                                ✅ QUERO MINHA ANÁLISE GRATUITA
-                            </a>
-                        </div>
-                        <p><strong>Contato direto:</strong><br>
-                        📧 moises.peritografotecnico@gmail.com<br>
-                        📱 WhatsApp: (XX) XXXXX-XXXX</p>
-                        <p><small>Esta oferta é válida apenas por tempo limitado!</small></p>
-                    </div>
-                </div>
+            <div class="form-group">
+                <button class="btn btn-success" onclick="createNewTemplate()">➕ Criar Novo Template</button>
+                <button class="btn" onclick="generateAITemplate()">🤖 Gerar Template com IA</button>
             </div>
             
-            <div class="email-template">
-                <h3>💼 Template: Contratação Profissional - Moisés</h3>
-                <div class="template-preview" id="template2">
-                    <strong>Assunto:</strong> ⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Moisés Disponível
-                    <br><br>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <p><strong>Prezado(a) [NOME],</strong></p>
-                        <p>Quando a <strong>autenticidade de documentos</strong> está em questão, você precisa de um especialista confiável.</p>
-                        <p><strong>Moisés - Perito Grafotécnico:</strong><br>
-                        ✅ Perito Assistente Técnico Certificado<br>
-                        ✅ Laudos aceitos em tribunais<br>
-                        ✅ Mais de 500 casos analisados<br>
-                        ✅ Relatórios técnicos detalhados</p>
-                        <div style="text-align: center; margin: 20px 0;">
-                            <a href="#" style="background: #dc3545; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
-                                🎯 CONTRATAR PERITO MOISÉS
-                            </a>
+            <div id="templatesList">
+                <div class="email-template" data-template-id="template1">
+                    <h3>📋 Template: Consultoria Gratuita - Moisés</h3>
+                    <div class="template-preview" id="template1">
+                        <strong>Assunto:</strong> 🔍 Descubra se Seus Documentos São Autênticos - Análise GRATUITA com Moisés!
+                        <br><br>
+                        <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 25px; border-radius: 12px; border: 2px solid #2196f3;">
+                            <p><strong>Olá [NOME],</strong></p>
+                            <p>Sou <strong>Moisés, Perito Grafotécnico</strong>, e você sabia que <strong>73% dos documentos questionados</strong> apresentam algum tipo de irregularidade?</p>
+                            <p>Como especialista em Grafoscopia, posso ajudar você a descobrir a verdade sobre qualquer documento suspeito.</p>
+                            <p><strong>🎁 OFERTA ESPECIAL:</strong> Análise grafotécnica GRATUITA para novos clientes!</p>
+                            <div style="text-align: center; margin: 25px 0;">
+                                <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" target="_blank" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">
+                                    🤖 ANÁLISE GRATUITA COM IA
+                                </a>
+                                <br>
+                                <a href="https://firmeartepro.blogspot.com/p/moises-firme-perito-assistente-tecnico.html" target="_blank" style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">
+                                    📚 SAIBA MAIS SOBRE MOISÉS
+                                </a>
+                            </div>
+                            <p><strong>Contato direto:</strong><br>
+                            📧 moises.peritografotecnico@gmail.com</p>
+                            <p><small>Esta oferta é válida apenas por tempo limitado!</small></p>
                         </div>
-                        <p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p>
-                        <p><strong>Urgência?</strong> Atendimento em 24h para casos emergenciais.</p>
                     </div>
+                    <button class="btn btn-danger" onclick="deleteTemplate('template1')" style="margin-top: 10px;">🗑️ Excluir</button>
+                </div>
+                
+                <div class="email-template" data-template-id="template2">
+                    <h3>💼 Template: Contratação Profissional - Moisés</h3>
+                    <div class="template-preview" id="template2">
+                        <strong>Assunto:</strong> ⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Moisés Disponível
+                        <br><br>
+                        <div style="background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); padding: 25px; border-radius: 12px; border: 2px solid #9c27b0;">
+                            <p><strong>Prezado(a) [NOME],</strong></p>
+                            <p>Quando a <strong>autenticidade de documentos</strong> está em questão, você precisa de um especialista confiável.</p>
+                            <p><strong>Moisés - Perito Grafotécnico:</strong><br>
+                            ✅ Perito Assistente Técnico Certificado<br>
+                            ✅ Laudos aceitos em tribunais<br>
+                            ✅ Mais de 500 casos analisados<br>
+                            ✅ Relatórios técnicos detalhados</p>
+                            <div style="text-align: center; margin: 25px 0;">
+                                <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" target="_blank" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">
+                                    🤖 ANÁLISE GRATUITA COM IA
+                                </a>
+                                <br>
+                                <a href="https://firmeartepro.blogspot.com/p/moises-firme-perito-assistente-tecnico.html" target="_blank" style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">
+                                    📚 SAIBA MAIS SOBRE MOISÉS
+                                </a>
+                            </div>
+                            <p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p>
+                            <p><strong>Urgência?</strong> Atendimento em 24h para casos emergenciais.</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" onclick="deleteTemplate('template2')" style="margin-top: 10px;">🗑️ Excluir</button>
                 </div>
             </div>
-            
-            <button class="btn" onclick="generateNewTemplate()">🤖 Gerar Novo Template com IA</button>
         </div>
 
         <!-- Campanhas -->
@@ -448,11 +462,31 @@
             </div>
             
             <div class="form-group">
+                <label for="campaignMode">Modo de Envio</label>
+                <select id="campaignMode" onchange="toggleCampaignMode()">
+                    <option value="single">Template Único</option>
+                    <option value="rotation">Rotação de Templates</option>
+                </select>
+            </div>
+            
+            <div class="form-group" id="singleTemplateGroup">
                 <label for="campaignTemplate">Selecionar Template</label>
                 <select id="campaignTemplate">
                     <option value="template1">📋 Consultoria Gratuita - Moisés</option>
                     <option value="template2">💼 Contratação Profissional - Moisés</option>
                 </select>
+            </div>
+            
+            <div class="form-group" id="rotationTemplateGroup" style="display: none;">
+                <label>Selecionar Templates para Rotação</label>
+                <div id="templateCheckboxes" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                    <label style="display: block; margin-bottom: 10px;">
+                        <input type="checkbox" value="template1" checked> 📋 Consultoria Gratuita - Moisés
+                    </label>
+                    <label style="display: block; margin-bottom: 10px;">
+                        <input type="checkbox" value="template2" checked> 💼 Contratação Profissional - Moisés
+                    </label>
+                </div>
             </div>
             
             <div class="form-group">
@@ -467,12 +501,12 @@
             </div>
             
             <div class="form-group">
-                <label for="sendFrequency">Frequência de Envio</label>
-                <select id="sendFrequency">
-                    <option value="daily">Diário</option>
-                    <option value="weekly">Semanal</option>
-                    <option value="biweekly">Quinzenal</option>
-                    <option value="monthly">Mensal</option>
+                <label for="sendInterval">Intervalo entre Envios</label>
+                <select id="sendInterval">
+                    <option value="0">Envio Imediato (sem intervalo)</option>
+                    <option value="10080">1 semana</option>
+                    <option value="21600">15 dias</option>
+                    <option value="43200">1 mês (30 dias)</option>
                 </select>
             </div>
             
@@ -488,6 +522,7 @@
                 <div class="progress-bar">
                     <div class="progress-fill" id="campaignProgress"></div>
                 </div>
+                <p id="campaignStatus">Preparando envio...</p>
             </div>
         </div>
 
@@ -524,8 +559,17 @@
                 <input type="number" id="monthlyLimit" placeholder="200" value="200">
             </div>
             
+            <h3 style="margin-top: 30px; color: #2c3e50;">🤖 Configurações da IA (Gemini)</h3>
+            
+            <div class="form-group">
+                <label for="geminiApiKey">Chave da API do Gemini</label>
+                <input type="password" id="geminiApiKey" placeholder="Sua API Key do Google Gemini">
+                <small style="color: #6c757d;">Obtenha sua chave em: https://makersuite.google.com/app/apikey</small>
+            </div>
+            
             <button class="btn btn-success" onclick="saveEmailJSConfig()">💾 Salvar Configurações</button>
             <button class="btn btn-warning" onclick="testEmailSystem()">🧪 Testar Configuração</button>
+            <button class="btn" onclick="testGeminiAPI()">🤖 Testar IA</button>
             
             <div style="margin-top: 30px;">
                 <h3>📊 Status do Sistema</h3>
@@ -552,7 +596,8 @@
             templateId: '',
             senderName: 'Moisés - Perito Grafotécnico',
             monthlyLimit: 200,
-            sentThisMonth: 0
+            sentThisMonth: 0,
+            geminiApiKey: ''
         };
 
         let contacts = [
@@ -565,12 +610,28 @@
         ];
 
         let campaigns = [];
+        
+        let templates = [
+            {
+                id: 'template1',
+                name: 'Consultoria Gratuita - Moisés',
+                subject: '🔍 Descubra se Seus Documentos São Autênticos - Análise GRATUITA com Moisés!',
+                isDefault: true
+            },
+            {
+                id: 'template2',
+                name: 'Contratação Profissional - Moisés',
+                subject: '⚖️ Precisa de Perícia Grafotécnica Oficial? Perito Moisés Disponível',
+                isDefault: true
+            }
+        ];
 
         // Inicializar sistema
         document.addEventListener('DOMContentLoaded', function() {
             loadEmailJSConfig();
             updateDashboard();
             updateContactList();
+            updateCampaignTemplateOptions();
         });
 
         // Gerenciamento de abas
@@ -640,6 +701,7 @@
                 document.getElementById('emailjsTemplateId').value = emailjsConfig.templateId || '';
                 document.getElementById('senderName').value = emailjsConfig.senderName || 'Moisés - Perito Grafotécnico';
                 document.getElementById('monthlyLimit').value = emailjsConfig.monthlyLimit || 200;
+                document.getElementById('geminiApiKey').value = emailjsConfig.geminiApiKey || '';
                 
                 // Verificar se está configurado
                 if (emailjsConfig.userId && emailjsConfig.serviceId && emailjsConfig.templateId) {
@@ -647,6 +709,14 @@
                     emailjs.init(emailjsConfig.userId);
                     document.getElementById('emailjsStatus').innerHTML = '✅ Configurado';
                 }
+            }
+            
+            // Carregar templates salvos
+            const savedTemplates = localStorage.getItem('templates');
+            if (savedTemplates) {
+                templates = JSON.parse(savedTemplates);
+                updateTemplatesList();
+                updateCampaignTemplateOptions();
             }
             
             updateEmailStatus();
@@ -658,16 +728,17 @@
             emailjsConfig.templateId = document.getElementById('emailjsTemplateId').value;
             emailjsConfig.senderName = document.getElementById('senderName').value;
             emailjsConfig.monthlyLimit = parseInt(document.getElementById('monthlyLimit').value);
+            emailjsConfig.geminiApiKey = document.getElementById('geminiApiKey').value;
             
             if (emailjsConfig.userId && emailjsConfig.serviceId && emailjsConfig.templateId) {
                 emailjsConfig.isConfigured = true;
                 emailjs.init(emailjsConfig.userId);
                 document.getElementById('emailjsStatus').innerHTML = '✅ Configurado';
-                alert('✅ Configurações salvas com sucesso!\n\n🔧 EmailJS configurado e pronto para uso.');
+                alert('✅ Configurações salvas com sucesso!\n\n🔧 EmailJS e IA configurados e prontos para uso.');
             } else {
                 emailjsConfig.isConfigured = false;
                 document.getElementById('emailjsStatus').innerHTML = '❌ Não Configurado';
-                alert('❌ Por favor, preencha todos os campos obrigatórios.');
+                alert('❌ Por favor, preencha todos os campos obrigatórios do EmailJS.');
             }
             
             localStorage.setItem('emailjsConfig', JSON.stringify(emailjsConfig));
@@ -906,8 +977,9 @@
 
         async function sendCampaign() {
             const campaignName = document.getElementById('campaignName').value;
-            const templateId = document.getElementById('campaignTemplate').value;
+            const campaignMode = document.getElementById('campaignMode').value;
             const audience = document.getElementById('campaignAudience').value;
+            const sendInterval = parseInt(document.getElementById('sendInterval').value);
             
             if (!campaignName) {
                 alert('❌ Por favor, insira um nome para a campanha.');
@@ -917,6 +989,21 @@
             if (!emailjsConfig.isConfigured) {
                 alert('❌ EmailJS não configurado!\n\n🔧 Vá para Configurações e configure suas credenciais primeiro.');
                 showTab('settings');
+                return;
+            }
+            
+            // Obter templates selecionados
+            let selectedTemplates = [];
+            if (campaignMode === 'single') {
+                const templateId = document.getElementById('campaignTemplate').value;
+                selectedTemplates = [templateId];
+            } else {
+                const checkboxes = document.querySelectorAll('#templateCheckboxes input[type="checkbox"]:checked');
+                selectedTemplates = Array.from(checkboxes).map(cb => cb.value);
+            }
+            
+            if (selectedTemplates.length === 0) {
+                alert('❌ Selecione pelo menos um template para a campanha.');
                 return;
             }
             
@@ -936,23 +1023,28 @@
                 return;
             }
             
-            if (!confirm(`📤 Confirmar envio da campanha?\n\n📊 Detalhes:\n• Nome: ${campaignName}\n• Template: ${templateId === 'template1' ? 'Consultoria Gratuita' : 'Contratação Profissional'}\n• Destinatários: ${targetContacts.length} contatos\n• Público: ${audience === 'all' ? 'Todos' : audience}\n\n✅ Continuar?`)) {
+            const templateNames = selectedTemplates.map(id => {
+                const template = templates.find(t => t.id === id);
+                return template ? template.name : id;
+            }).join(', ');
+            
+            let intervalText = '';
+            if (sendInterval === 0) intervalText = 'Imediato';
+            else if (sendInterval === 10080) intervalText = '1 semana';
+            else if (sendInterval === 21600) intervalText = '15 dias';
+            else if (sendInterval === 43200) intervalText = '1 mês';
+            else intervalText = sendInterval + ' minutos';
+            
+            if (!confirm(`📤 Confirmar envio da campanha?\n\n📊 Detalhes:\n• Nome: ${campaignName}\n• Modo: ${campaignMode === 'single' ? 'Template Único' : 'Rotação de Templates'}\n• Templates: ${templateNames}\n• Destinatários: ${targetContacts.length} contatos\n• Público: ${audience === 'all' ? 'Todos' : audience}\n• Intervalo: ${intervalText}\n\n✅ Continuar?`)) {
                 return;
             }
             
             // Mostrar loading
             document.getElementById('campaignLoading').style.display = 'block';
             const progressBar = document.getElementById('campaignProgress');
+            const statusElement = document.getElementById('campaignStatus');
             
             try {
-                // Obter conteúdo do template
-                const templateElement = document.getElementById(templateId);
-                const templateContent = templateElement.innerHTML;
-                
-                // Extrair assunto do template
-                const subjectMatch = templateContent.match(/<strong>Assunto:<\/strong>\s*([^<]+)/);
-                const subject = subjectMatch ? subjectMatch[1].trim() : 'Email do Moisés - Perito Grafotécnico';
-                
                 let successCount = 0;
                 let errorCount = 0;
                 
@@ -960,7 +1052,27 @@
                 for (let i = 0; i < targetContacts.length; i++) {
                     const contact = targetContacts[i];
                     
+                    // Selecionar template (rotação ou único)
+                    const templateIndex = campaignMode === 'rotation' ? i % selectedTemplates.length : 0;
+                    const templateId = selectedTemplates[templateIndex];
+                    const template = templates.find(t => t.id === templateId);
+                    
+                    statusElement.textContent = `Enviando para ${contact.name} (${i + 1}/${targetContacts.length}) - Template: ${template.name}`;
+                    
                     try {
+                        // Obter conteúdo do template
+                        const templateElement = document.getElementById(templateId);
+                        let templateContent = templateElement.innerHTML;
+                        
+                        // Para templates customizados, usar o conteúdo salvo
+                        if (!template.isDefault && template.content) {
+                            templateContent = `<strong>Assunto:</strong> ${template.subject}<br><br><div style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); padding: 25px; border-radius: 12px; border: 2px solid #ffc107;">${formatTemplateContent(template.content)}<div style="text-align: center; margin: 25px 0;"><a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" target="_blank" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">🤖 ANÁLISE GRATUITA COM IA</a><br><a href="https://firmeartepro.blogspot.com/p/moises-firme-perito-assistente-tecnico.html" target="_blank" style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">📚 SAIBA MAIS SOBRE MOISÉS</a></div><p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p></div>`;
+                        }
+                        
+                        // Extrair assunto do template
+                        const subjectMatch = templateContent.match(/<strong>Assunto:<\/strong>\s*([^<]+)/);
+                        const subject = subjectMatch ? subjectMatch[1].trim() : template.subject || 'Email do Moisés - Perito Grafotécnico';
+                        
                         // Personalizar conteúdo
                         let personalizedContent = templateContent.replace(/\[NOME\]/g, contact.name);
                         
@@ -971,8 +1083,18 @@
                         const progress = ((i + 1) / targetContacts.length) * 100;
                         progressBar.style.width = progress + '%';
                         
-                        // Delay entre envios para evitar spam
-                        if (i < targetContacts.length - 1) {
+                        // Delay entre envios
+                        if (i < targetContacts.length - 1 && sendInterval > 0) {
+                            let intervalText = '';
+                            if (sendInterval === 10080) intervalText = '1 semana';
+                            else if (sendInterval === 21600) intervalText = '15 dias';
+                            else if (sendInterval === 43200) intervalText = '1 mês';
+                            else intervalText = `${sendInterval} minutos`;
+                            
+                            statusElement.textContent = `Aguardando ${intervalText} para próximo envio...`;
+                            await new Promise(resolve => setTimeout(resolve, sendInterval * 60 * 1000));
+                        } else if (i < targetContacts.length - 1) {
+                            // Delay mínimo para evitar spam
                             await new Promise(resolve => setTimeout(resolve, 2000));
                         }
                         
@@ -989,17 +1111,19 @@
                 const campaign = {
                     id: Date.now(),
                     name: campaignName,
-                    template: templateId,
+                    mode: campaignMode,
+                    templates: selectedTemplates,
                     audience: audience,
                     sent: successCount,
                     errors: errorCount,
+                    interval: sendInterval,
                     date: new Date().toLocaleString('pt-BR')
                 };
                 
                 campaigns.push(campaign);
                 updateDashboard();
                 
-                alert(`✅ Campanha enviada!\n\n📊 Resultados:\n• Enviados com sucesso: ${successCount}\n• Erros: ${errorCount}\n• Total de destinatários: ${targetContacts.length}\n\n📧 Os emails podem demorar alguns minutos para chegar.`);
+                alert(`✅ Campanha enviada!\n\n📊 Resultados:\n• Enviados com sucesso: ${successCount}\n• Erros: ${errorCount}\n• Total de destinatários: ${targetContacts.length}\n• Templates usados: ${selectedTemplates.length}\n\n📧 Os emails podem demorar alguns minutos para chegar.`);
                 
             } catch (error) {
                 document.getElementById('campaignLoading').style.display = 'none';
@@ -1011,9 +1135,299 @@
             alert('🚧 Funcionalidade em desenvolvimento!\n\nEm breve você poderá agendar campanhas para:\n• Data e hora específicas\n• Envios recorrentes\n• Automação baseada em eventos');
         }
 
-        // Templates
-        function generateNewTemplate() {
-            alert('🚧 Gerador de Templates com IA em desenvolvimento!\n\nEm breve você poderá:\n• Gerar templates personalizados\n• Usar IA para otimizar conteúdo\n• Criar variações A/B automaticamente');
+        // Gerenciamento de Templates
+        function toggleCampaignMode() {
+            const mode = document.getElementById('campaignMode').value;
+            const singleGroup = document.getElementById('singleTemplateGroup');
+            const rotationGroup = document.getElementById('rotationTemplateGroup');
+            
+            if (mode === 'single') {
+                singleGroup.style.display = 'block';
+                rotationGroup.style.display = 'none';
+            } else {
+                singleGroup.style.display = 'none';
+                rotationGroup.style.display = 'block';
+            }
+        }
+        
+        function createNewTemplate() {
+            const templateName = prompt('📝 Nome do Template:', 'Novo Template');
+            if (!templateName) return;
+            
+            const templateSubject = prompt('📧 Assunto do Email:', 'Assunto do Email');
+            if (!templateSubject) return;
+            
+            const templateContent = prompt('✍️ Conteúdo do Template (use [NOME] para personalizar):', 
+                'Olá [NOME],\n\nEste é um novo template criado por você!\n\nAtenciosamente,\nMoisés - Perito Grafotécnico');
+            if (!templateContent) return;
+            
+            const templateId = 'template_' + Date.now();
+            const newTemplate = {
+                id: templateId,
+                name: templateName,
+                subject: templateSubject,
+                content: templateContent,
+                isDefault: false
+            };
+            
+            templates.push(newTemplate);
+            localStorage.setItem('templates', JSON.stringify(templates));
+            
+            addTemplateToDOM(newTemplate);
+            updateCampaignTemplateOptions();
+            updateDashboard();
+            
+            alert('✅ Template criado com sucesso!');
+        }
+        
+        function addTemplateToDOM(template) {
+            const templatesList = document.getElementById('templatesList');
+            const templateHTML = `
+                <div class="email-template" data-template-id="${template.id}">
+                    <h3>📝 Template: ${template.name}</h3>
+                    <div class="template-preview" id="${template.id}">
+                        <strong>Assunto:</strong> ${template.subject}
+                        <br><br>
+                        <div style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); padding: 25px; border-radius: 12px; border: 2px solid #ffc107;">
+                            ${formatTemplateContent(template.content)}
+                            <div style="text-align: center; margin: 25px 0;">
+                                <a href="https://firmeartepro.blogspot.com/p/sistema-de-consultoria-em-grafoscopia.html" target="_blank" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">
+                                    🤖 ANÁLISE GRATUITA COM IA
+                                </a>
+                                <br>
+                                <a href="https://firmeartepro.blogspot.com/p/moises-firme-perito-assistente-tecnico.html" target="_blank" style="background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; display: inline-block;">
+                                    📚 SAIBA MAIS SOBRE MOISÉS
+                                </a>
+                            </div>
+                            <p><strong>Contato:</strong> moises.peritografotecnico@gmail.com</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger" onclick="deleteTemplate('${template.id}')" style="margin-top: 10px;">🗑️ Excluir</button>
+                </div>
+            `;
+            templatesList.insertAdjacentHTML('beforeend', templateHTML);
+        }
+        
+        function formatTemplateContent(content) {
+            return content.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        }
+        
+        function deleteTemplate(templateId) {
+            const template = templates.find(t => t.id === templateId);
+            if (template && template.isDefault) {
+                alert('❌ Não é possível excluir templates padrão do sistema.');
+                return;
+            }
+            
+            if (confirm('❓ Tem certeza que deseja excluir este template?')) {
+                templates = templates.filter(t => t.id !== templateId);
+                localStorage.setItem('templates', JSON.stringify(templates));
+                
+                document.querySelector(`[data-template-id="${templateId}"]`).remove();
+                updateCampaignTemplateOptions();
+                updateDashboard();
+                
+                alert('✅ Template excluído com sucesso!');
+            }
+        }
+        
+        function updateTemplatesList() {
+            const templatesList = document.getElementById('templatesList');
+            templatesList.innerHTML = '';
+            
+            templates.forEach(template => {
+                if (template.isDefault) {
+                    // Templates padrão já estão no HTML
+                    return;
+                }
+                addTemplateToDOM(template);
+            });
+        }
+        
+        function updateCampaignTemplateOptions() {
+            const singleSelect = document.getElementById('campaignTemplate');
+            const checkboxContainer = document.getElementById('templateCheckboxes');
+            
+            // Atualizar select único
+            singleSelect.innerHTML = '';
+            templates.forEach(template => {
+                const option = document.createElement('option');
+                option.value = template.id;
+                option.textContent = `📝 ${template.name}`;
+                singleSelect.appendChild(option);
+            });
+            
+            // Atualizar checkboxes de rotação
+            checkboxContainer.innerHTML = '';
+            templates.forEach(template => {
+                const label = document.createElement('label');
+                label.style.display = 'block';
+                label.style.marginBottom = '10px';
+                label.innerHTML = `
+                    <input type="checkbox" value="${template.id}" checked> 📝 ${template.name}
+                `;
+                checkboxContainer.appendChild(label);
+            });
+        }
+        
+        async function generateAITemplate() {
+            if (!emailjsConfig.geminiApiKey) {
+                alert('❌ Configure sua chave da API do Gemini primeiro!\n\n🔧 Vá para Configurações e adicione sua API Key.');
+                showTab('settings');
+                return;
+            }
+            
+            const templateType = prompt(`🤖 GERADOR DE TEMPLATES COM IA
+            
+Escolha o tipo de template:
+
+1 - Promoção/Oferta Especial
+2 - Apresentação Profissional  
+3 - Urgência/Emergência
+4 - Educativo/Informativo
+5 - Depoimento/Testemunhal
+6 - Follow-up/Acompanhamento
+7 - Convite para Evento
+8 - Newsletter Informativa
+
+Digite o número (1-8):`);
+            
+            if (!templateType || templateType < 1 || templateType > 8) {
+                alert('❌ Opção inválida. Tente novamente.');
+                return;
+            }
+            
+            const customMessage = prompt('📝 Personalize seu template:\n\nDigite uma mensagem específica ou contexto adicional (opcional):');
+            
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                const generatedTemplate = await callGeminiAPI(templateType, customMessage);
+                
+                const templateId = 'ai_template_' + Date.now();
+                const newTemplate = {
+                    id: templateId,
+                    name: generatedTemplate.name,
+                    subject: generatedTemplate.subject,
+                    content: generatedTemplate.content,
+                    isDefault: false
+                };
+                
+                templates.push(newTemplate);
+                localStorage.setItem('templates', JSON.stringify(templates));
+                
+                addTemplateToDOM(newTemplate);
+                updateCampaignTemplateOptions();
+                updateDashboard();
+                
+                document.getElementById('loading').style.display = 'none';
+                alert('✅ Template gerado com IA com sucesso!\n\n🎨 Novo template criado e adicionado ao sistema.');
+                
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                alert('❌ Erro ao gerar template com IA: ' + error.message);
+            }
+        }
+        
+        async function callGeminiAPI(templateType, customMessage) {
+            const typeDescriptions = {
+                1: 'promoção com oferta especial e desconto',
+                2: 'apresentação profissional e credibilidade',
+                3: 'urgência e atendimento emergencial',
+                4: 'educativo sobre grafoscopia',
+                5: 'depoimento de cliente satisfeito',
+                6: 'follow-up pós-atendimento',
+                7: 'convite para evento ou webinar',
+                8: 'newsletter com dicas e novidades'
+            };
+            
+            const prompt = `Crie um template de email marketing profissional para Moisés, um perito grafotécnico especializado em análise de documentos.
+
+Tipo de template: ${typeDescriptions[templateType]}
+Contexto adicional: ${customMessage || 'Nenhum'}
+
+Requisitos:
+- Use [NOME] para personalização
+- Tom profissional mas acessível
+- Foque em grafoscopia e análise de documentos
+- Inclua elementos de urgência ou valor quando apropriado
+- Máximo 200 palavras no conteúdo
+- Use emojis moderadamente
+
+Retorne APENAS um JSON válido com esta estrutura:
+{
+  "name": "Nome do Template",
+  "subject": "Assunto do Email",
+  "content": "Conteúdo do email em HTML simples"
+}`;
+
+            const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${emailjsConfig.geminiApiKey}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    contents: [{
+                        parts: [{
+                            text: prompt
+                        }]
+                    }]
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Erro na API do Gemini: ' + response.status);
+            }
+            
+            const data = await response.json();
+            const generatedText = data.candidates[0].content.parts[0].text;
+            
+            // Extrair JSON da resposta
+            const jsonMatch = generatedText.match(/\{[\s\S]*\}/);
+            if (!jsonMatch) {
+                throw new Error('Resposta da IA não contém JSON válido');
+            }
+            
+            return JSON.parse(jsonMatch[0]);
+        }
+        
+        async function testGeminiAPI() {
+            if (!emailjsConfig.geminiApiKey) {
+                alert('❌ Configure sua chave da API do Gemini primeiro!');
+                return;
+            }
+            
+            document.getElementById('loading').style.display = 'block';
+            
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${emailjsConfig.geminiApiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: 'Responda apenas: "IA funcionando perfeitamente!"'
+                            }]
+                        }]
+                    })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erro na API: ' + response.status);
+                }
+                
+                const data = await response.json();
+                const result = data.candidates[0].content.parts[0].text;
+                
+                document.getElementById('loading').style.display = 'none';
+                alert('✅ IA testada com sucesso!\n\n🤖 Resposta: ' + result);
+                
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                alert('❌ Erro no teste da IA: ' + error.message + '\n\n🔧 Verifique se sua API Key está correta.');
+            }
         }
 
         // Dashboard
@@ -1021,10 +1435,12 @@
             document.getElementById('totalContacts').textContent = contacts.length;
             document.getElementById('sentThisMonth').textContent = emailjsConfig.sentThisMonth;
             document.getElementById('campaignsCount').textContent = campaigns.length;
+            document.getElementById('templatesCount').textContent = templates.length;
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9731cd593275c618',t:'MTc1NTg1OTc1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9733880f31ff3183',t:'MTc1NTg3Nzg4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
